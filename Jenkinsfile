@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''echo "Building Code" '''
+                sh '''echo "Building Code" 
+                      docker build -t nodeapp:$BUILD_NUMBER .'''
             }
         }
         stage('Test') {
