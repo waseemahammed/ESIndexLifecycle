@@ -1,18 +1,29 @@
 pipeline {
     agent any
+   parameters {
+        booleanParam(name: 'Refresh', defaultValue: false, description: 'Refresh this Job')
 
+        string(name: 'codeLocation', defaultValue: '/', description: '')
+
+    }
     stages {
         stage('Build') {
             steps {
-                sh '''echo "Building Code"
+                sh '''
+                      echo ${params.codeLocation}                      
+                      cd ${params.codeLocation}
+                      echo "Building Code"
                       whoami
-                      docker build -t nodeapp:$BUILD_NUMBER .
+                      npm install
+                      ls
                       '''
             }
         }
-        stage('Test') {
+        stage('Upload ') {
             steps {
+                
                 echo 'Testing..'
+                sh '''ng build --prod'''
             }
         }
         stage('Deploy') {
