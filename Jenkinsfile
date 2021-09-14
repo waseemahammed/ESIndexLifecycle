@@ -23,7 +23,10 @@ pipeline {
             steps {
                 
                 echo 'Testing..'
-                sh """ng build --prod"""
+                sh """
+                    cd ${params.codeLocation}
+                    ng build
+                  """
             }
         }
         stage('Deploy') {
