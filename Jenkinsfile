@@ -9,21 +9,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
+                sh """
                       echo ${params.codeLocation}                      
                       cd ${params.codeLocation}
                       echo "Building Code"
                       whoami
                       npm install
                       ls
-                      '''
+                      """
             }
         }
         stage('Upload ') {
             steps {
                 
                 echo 'Testing..'
-                sh '''ng build --prod'''
+                sh """ng build --prod"""
             }
         }
         stage('Deploy') {
