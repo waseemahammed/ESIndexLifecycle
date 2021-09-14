@@ -4,6 +4,8 @@ pipeline {
         booleanParam(name: 'Refresh', defaultValue: false, description: 'Refresh this Job')
 
         string(name: 'codeLocation', defaultValue: '/', description: '')
+        string(name: 'bucketName', defaultValue: '', description: '')
+
 
     }
     stages {
@@ -32,6 +34,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                  sh """
+                    cd ${params.codeLocation}/dist
+                    aws s3 cp . s3://${params.bucketName}/ --recursive
+                  """
             }
         }
     }
