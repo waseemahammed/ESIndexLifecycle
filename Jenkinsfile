@@ -47,7 +47,7 @@ pipeline {
             steps{
                 echo ' Infrastructure as code...'
                   sh"""
-                    cd /terraform
+                    cd terraform
                     terraform init
                     terraform apply -var-file="values.tfvars"
 
