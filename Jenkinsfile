@@ -3,7 +3,7 @@ pipeline {
    parameters {
         booleanParam(name: 'Refresh', defaultValue: false, description: 'Refresh this Job')
 
-        string(name: 'codeLocation', defaultValue: '/', description: '')
+        string(name: 'codeLocation', defaultValue: 'AngularCode', description: '')
         string(name: 'bucketName', defaultValue: '', description: '')
 
 
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                   sh """
-                    cd ${params.codeLocation}/dist
+                    cd ${params.codeLocation}
                     docker build -t angular .
                     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 630532976899.dkr.ecr.us-east-1.amazonaws.com
                     docker tag angular 630532976899.dkr.ecr.us-east-1.amazonaws.com/gokloudwebsite:angular
