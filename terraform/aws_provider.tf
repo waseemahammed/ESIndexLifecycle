@@ -2,7 +2,7 @@
 terraform{
   backend "s3" {
     bucket = "terraformbaket"
-    key="rohit.tfstate"
+    key="mukul.tfstate"
     
     access_key = "AKIAZFTVRWEBVT4RUB4S"
     secret_key = "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"
