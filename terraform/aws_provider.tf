@@ -4,8 +4,6 @@ terraform{
     bucket = "terraformbaket"
     key="mukul.tfstate"
     
-    access_key = "AKIAZFTVRWEBVT4RUB4S"
-    secret_key = "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"
   }
 }
 
