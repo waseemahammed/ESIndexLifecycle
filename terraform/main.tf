@@ -4,7 +4,7 @@ module "Load_Balancer" {
   lBSubnet=["subnet-06ccdf43963cdf2e2","subnet-0ddb8f7753d452e9e"]
   vpcId      = "vpc-0d3925dbda8fa5661"
   ecsClusterName = "config-service-cluster"
-  
+  DNSName = module.Load_Balancer.alb_DNS
  
 
 }
