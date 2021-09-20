@@ -1,5 +1,5 @@
 module "Load_Balancer" {
-  source = "./terraform/Load_Balancer"
+  source = "./Load_Balancer"
   lBsecurityGroups=["sg-00dabe59749aa1fa2"]
   lBSubnet=["subnet-06ccdf43963cdf2e2","subnet-0ddb8f7753d452e9e"]
   vpcId      = "vpc-0d3925dbda8fa5661"
@@ -8,7 +8,7 @@ module "Load_Balancer" {
 
 }
 module "ECS" {
-  source = "./terraform/ECS"
+  source = "./ECS"
   
   securityGroups=["sg-00dabe59749aa1fa2"]
   subnets=["subnet-06ccdf43963cdf2e2"]
