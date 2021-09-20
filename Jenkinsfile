@@ -50,6 +50,7 @@ pipeline {
                     cd terraform
                     terraform init
                     terraform apply -var-file="values.tfvars" -auto-approve
+                    terraform output alb_DNS
 
                   """
             }
