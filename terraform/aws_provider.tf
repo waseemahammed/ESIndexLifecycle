@@ -3,6 +3,7 @@ terraform{
   backend "s3" {
     bucket = "terraformbaket"
     key="mukul.tfstate"
+    region = var.region
     
   }
 }
