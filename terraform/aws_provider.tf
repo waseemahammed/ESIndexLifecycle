@@ -1,12 +1,12 @@
 
-terraform{
-  backend "s3" {
-    bucket = "terraformbaket"
-    key="mukul.tfstate"
-    region = var.region
+# terraform{
+#   backend "s3" {
+#     bucket = "terraformbaket"
+#     key="mukul.tfstate"
+#     region = var.region
     
-  }
-}
+#   }
+# }
 
 provider "aws" {
  region = var.region
