@@ -5,6 +5,9 @@ pipeline {
 
         string(name: 'codeLocation', defaultValue: 'AngularCode', description: '')
         string(name: 'bucketName', defaultValue: '', description: '')
+        string(name: 'ImageTag', defaultValue: '', description: '')
+        string(name: 'ECR_Tag', defaultValue: '', description: '')
+        
 
 
     }
@@ -36,10 +39,10 @@ pipeline {
                 echo 'Deploying....'
                   sh """
                     cd ${params.codeLocation}
-                    docker build -t angular .
+                    docker build -t ${params.ImageTag} .
                     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 630532976899.dkr.ecr.us-east-1.amazonaws.com
-                    docker tag angular 630532976899.dkr.ecr.us-east-1.amazonaws.com/gokloudwebsite:angular
-                    docker push 630532976899.dkr.ecr.us-east-1.amazonaws.com/gokloudwebsite:angular
+                    docker tag ${params.ImageTag} 630532976899.dkr.ecr.us-east-1.amazonaws.com/gokloudwebsite:${params.ECR_Tag}
+                    docker push 630532976899.dkr.ecr.us-east-1.amazonaws.com/gokloudwebsite:${params.ECR_Tag}
                   """
             }
         }
@@ -50,7 +53,7 @@ pipeline {
                     cd terraform
                     terraform init
                     terraform apply -var-file="values.tfvars" -auto-approve
-                    terraform output alb_DNS
+                    terraform output lb_dns_name
 
                   """
             }
