@@ -1,12 +1,11 @@
 
-# terraform{
-#   backend "s3" {
-#     bucket = "terraformbaket"
-#     key="mukul.tfstate"
-#     region = var.region
-    
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket = "gokloud-platform-infrastructure"
+    key    = "gokloud-website.tfstate"
+    region = "us-east-2"
+  }
+}
 
 provider "aws" {
  region = var.region
