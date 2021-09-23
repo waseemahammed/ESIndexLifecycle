@@ -1,3 +1,3 @@
-output "lb_dns_name"{
-   value = module.Load_Balancer.lb_dns_name
+output "dns_name"{
+   value = module.Load_Balancer.dns_name
 }
