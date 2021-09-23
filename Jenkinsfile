@@ -34,7 +34,7 @@ pipeline {
                 sh """
                     cd ${params.codeLocation}
                    
-                    ng build
+                    sudo ng build
                   """
             }
         }
