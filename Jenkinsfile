@@ -12,21 +12,21 @@ pipeline {
 
     }
     stages {
-        stage('Build') {
-            steps {
-                sh """
-                      echo ${params.codeLocation}                      
-                      cd ${params.codeLocation}
-                      echo "Building Code"
-                      whoami
-                      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-                      . ~/.nvm/nvm.sh
-                      nvm install node
-                      npm install
-                      ls
-                      """
-            }
-        }
+//         stage('Build') {
+//             steps {
+//                 sh """
+//                       echo ${params.codeLocation}                      
+//                       cd ${params.codeLocation}
+//                       echo "Building Code"
+//                       whoami
+//                       curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+//                       . ~/.nvm/nvm.sh
+//                       nvm install node
+//                       npm install
+//                       ls
+//                       """
+//             }
+//        }
         stage('Upload ') {
             steps {
                 
