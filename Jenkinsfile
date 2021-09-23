@@ -22,7 +22,6 @@ pipeline {
                       curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
                       . ~/.nvm/nvm.sh
                       nvm install node
-                      npm install
                       ls
                       """
             }
@@ -33,6 +32,7 @@ pipeline {
                 echo 'Testing..'
                 sh """
                     cd ${params.codeLocation}
+                    npm install -g npm
                     npm install -g @angular/cli
                     ng build
                   """
