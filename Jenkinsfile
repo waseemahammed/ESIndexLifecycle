@@ -53,6 +53,7 @@ pipeline {
                     cd terraform
                     terraform init
                     terraform apply -var-file="values.tfvars" -auto-approve
+                    terraform apply -var="imageURI=016505711272.dkr.ecr.us-east-2.amazonaws.com/gokloudwebsite:${params.ECR_Tag}"
                     terraform output dns_name
 
                   """
