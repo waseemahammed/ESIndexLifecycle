@@ -33,7 +33,7 @@ pipeline {
                 echo 'Testing..'
                 sh """
                     cd ${params.codeLocation}
-                    yum install npm
+                    sudo yum install npm
                     npm install -g @angular/cli
                     ng build
                   """
