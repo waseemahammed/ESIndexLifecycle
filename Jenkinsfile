@@ -33,7 +33,7 @@ pipeline {
                 echo 'Testing..'
                 sh """
                     cd ${params.codeLocation}
-                    npm install -g @angular/cli
+                   
                     ng build
                   """
             }
