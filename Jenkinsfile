@@ -53,7 +53,7 @@ pipeline {
                     cd terraform
                     terraform init
                     terraform apply -var-file="values.tfvars" -auto-approve
-                    terraform output lb_dns_name
+                    terraform output dns_name
 
                   """
             }
