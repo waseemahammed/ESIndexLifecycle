@@ -5,8 +5,8 @@ pipeline {
 
         string(name: 'codeLocation', defaultValue: 'AngularCode', description: '')
         string(name: 'bucketName', defaultValue: '', description: '')
-        string(name: 'ImageTag', defaultValue: '', description: '')
-        string(name: 'ECR_Tag', defaultValue: '', description: '')
+        string(name: 'ImageTag', defaultValue: 'angular', description: '')
+        string(name: 'ECR_Tag', defaultValue: 'first', description: '')
         
 
 
