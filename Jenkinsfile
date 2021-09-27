@@ -35,7 +35,7 @@ pipeline {
                     cd ${params.codeLocation}
                     
                    
-                    npm run ng build 
+                    npm run-script ng build 
                   """
             }
         }
