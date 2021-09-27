@@ -33,7 +33,8 @@ pipeline {
                 echo 'Testing..'
                 sh """
                     cd ${params.codeLocation}
-                    tools {nodejs "NODEJS"}
+                    
+                   
                     npm run ng build 
                   """
             }
