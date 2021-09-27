@@ -33,9 +33,9 @@ pipeline {
                 echo 'Testing..'
                 sh """
                     cd ${params.codeLocation}
-                    chown -R jenkins ${params.codeLocation}
-                    chmod -R u+rX ${params.codeLocation}
-                    sudo ng build
+//                     chown -R jenkins ${params.codeLocation}
+//                     chmod -R u+rX ${params.codeLocation}
+                       ng build --optimization=true
                   """
             }
         }
