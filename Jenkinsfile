@@ -31,12 +31,10 @@ pipeline {
             steps {
                 
                 echo 'Testing..'
-                sh """
+                sh '''
                     cd ${params.codeLocation}
-                    
-                   
                     npm run-script ng build 
-                  """
+                  '''
             }
         }
         stage('Deploy') {
@@ -67,7 +65,7 @@ pipeline {
     }
         post {
     cleanup {
-        cleanWs(cleanWhenFailure: false)
+        cleanWs(cleanWhenFailure: true)
     }
     }
 }
